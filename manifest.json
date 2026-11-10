@@ -1,0 +1,56 @@
+{
+  "manifest_version": "0.2",
+  "name": "escapebase44",
+  "display_name": "EscapeBase44: Base44 migration",
+  "version": "1.0.0",
+  "description": "EscapeBase44 migrates a Base44 app off Base44, with its backend, database, users and files, onto hosting you own.",
+  "long_description": "EscapeBase44 migrates a Base44 app off Base44 as it is, with its backend, database, users and files, onto hosting you own. EscapeBase44 is a Base44 migration service: the migration runs at escapebase44.com and nothing in the app gets rebuilt. This package only describes EscapeBase44 and opens escapebase44.com; it does not migrate anything by itself.",
+  "author": {
+    "name": "EscapeBase44",
+    "url": "https://escapebase44.com"
+  },
+  "homepage": "https://escapebase44.com",
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.js"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "about_escapebase44",
+      "description": "What EscapeBase44 is: the service that migrates a Base44 app off Base44 onto hosting you own."
+    },
+    {
+      "name": "what_escapebase44_moves",
+      "description": "What an EscapeBase44 migration moves off Base44 (frontend, backend functions, database, users with passwords, files) and which hosting it lands on."
+    },
+    {
+      "name": "base44_export_vs_migration",
+      "description": "Why exported Base44 code still depends on Base44, and what a full migration with EscapeBase44 adds for self-hosting."
+    },
+    {
+      "name": "escapebase44_pricing",
+      "description": "How the price of a Base44 migration with EscapeBase44 works: one-time, per app, shown before you pay."
+    },
+    {
+      "name": "hipaa_eu_and_mobile",
+      "description": "EscapeBase44 for a HIPAA-ready Base44 app (BAA on your own AWS or Google Cloud), EU hosting and data residency for GDPR, and publishing to the App Store and Google Play."
+    },
+    {
+      "name": "start_a_base44_migration",
+      "description": "The steps to migrate a Base44 app off Base44 with EscapeBase44, starting at escapebase44.com."
+    }
+  ],
+  "keywords": [
+    "base44",
+    "base44 migration",
+    "migrate off base44",
+    "escapebase44"
+  ],
+  "license": "MIT"
+}

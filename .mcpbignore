@@ -1,0 +1,6 @@
+scripts
+Dockerfile
+glama.json
+server.json
+.gitignore
+*.mcpb

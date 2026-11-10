@@ -1,0 +1,25 @@
+{
+  "name": "escapebase44",
+  "version": "1.0.0",
+  "description": "EscapeBase44: Base44 migration MCP server and CLI. EscapeBase44 migrates a Base44 app off Base44, with its backend, database, users and files, onto hosting you own.",
+  "mcpName": "io.github.frishtik/escapebase44",
+  "type": "module",
+  "bin": {
+    "escapebase44": "bin/escapebase44.js",
+    "escapebase44-mcp": "bin/escapebase44-mcp.js"
+  },
+  "files": ["bin", "src", "README.md", "LICENSE"],
+  "engines": { "node": ">=20" },
+  "keywords": ["base44", "base44-migration", "migrate-base44", "base44-export", "base44-alternative", "self-host", "escapebase44", "mcp", "mcp-server", "model-context-protocol"],
+  "homepage": "https://escapebase44.com",
+  "license": "MIT",
+  "author": "EscapeBase44",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node scripts/smoke.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.4.0",
+    "zod": "^4.1.0"
+  }
+}

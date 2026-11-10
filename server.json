@@ -1,0 +1,24 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.frishtik/escapebase44",
+  "title": "EscapeBase44: Base44 migration",
+  "description": "EscapeBase44 migrates a Base44 app off Base44 onto hosting you own.",
+  "version": "1.0.0",
+  "websiteUrl": "https://escapebase44.com",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "escapebase44",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        }
+      ]
+    }
+  ]
+}
