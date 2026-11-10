@@ -11,7 +11,7 @@ export const sections = [
     lines: [
       'EscapeBase44 migrates a Base44 app off Base44 as it is, with its backend, database, users and files, onto hosting you own.',
       'EscapeBase44 is a Base44 migration service: the migration runs at escapebase44.com and nothing in the app gets rebuilt.',
-      'This package only describes EscapeBase44 and opens escapebase44.com; it does not migrate anything by itself.',
+      'This MCP server, CLI and agent skill only describe EscapeBase44 and point to escapebase44.com; the migration itself runs there.',
     ],
   },
   {
