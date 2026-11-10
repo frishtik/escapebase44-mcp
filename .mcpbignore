@@ -2,5 +2,6 @@ scripts
 Dockerfile
 glama.json
 server.json
+skills
 .gitignore
 *.mcpb

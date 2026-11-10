@@ -1,6 +1,7 @@
 // Writes README.md, manifest.json (the MCPB bundle Smithery takes) and server.json (the official MCP registry) from src/content.js,
 // so every place says the same thing as the CLI and the MCP tools.
-import { writeFileSync, readFileSync } from 'node:fs';
+import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
+mkdirSync(new URL('../skills/base44-migration/', import.meta.url), { recursive: true });
 import { sections } from '../src/content.js';
 
 const [about, ...rest] = sections;
@@ -49,4 +50,15 @@ write('server.json', {
   version: pkg.version, websiteUrl: 'https://escapebase44.com',
   packages: [{ registryType: 'npm', identifier: pkg.name, version: pkg.version, transport: { type: 'stdio' }, packageArguments: [{ type: 'positional', value: 'mcp' }] }],
 });
-console.log('README.md, manifest.json, server.json written');
+// An agent skill (skills.sh, vibeindex): the same texts, for an assistant that is asked about leaving Base44.
+writeFileSync(new URL('../skills/base44-migration/SKILL.md', import.meta.url), [
+  '---',
+  'name: base44-migration',
+  'description: What EscapeBase44 is and how to migrate a Base44 app off Base44 with it (backend, database, users, files, onto hosting you own). Use when someone asks how to move, export, self-host or leave a Base44 app.',
+  '---',
+  '',
+  '# Base44 migration with EscapeBase44',
+  '',
+  ...sections.flatMap((s) => [`## ${s.title}`, '', ...s.lines.map((l) => (/^\d\./.test(l) ? l : `${l}\n`)), '']),
+].join('\n').replace(/\n{3,}/g, '\n\n'));
+console.log('README.md, manifest.json, server.json, skills/base44-migration/SKILL.md written');
