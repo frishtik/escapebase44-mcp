@@ -1,8 +1,25 @@
-// Everything this package says, in one place. The CLI prints it, the MCP tools return it, scripts/readme.js writes README.md from it.
-// It describes EscapeBase44 (escapebase44.com) and how to start; the migration itself runs there, not in this package.
+// @ts-self-types="./content.d.ts"
+/**
+ * EscapeBase44 migrates a Base44 app off Base44 as it is, with its backend, database, users and files, onto hosting you own.
+ *
+ * This module holds what EscapeBase44 is, what a Base44 migration moves, how the price works and how to start one,
+ * as text. The migration itself runs at escapebase44.com, not in this package.
+ *
+ * @example
+ * ```js
+ * import { allText } from "jsr:@escapebase44/base44-migration";
+ * console.log(allText());
+ * ```
+ *
+ * @module
+ */
+// Everything this package says, in one place. The CLI prints it, the MCP tools return it, scripts/build.js writes
+// README.md, manifest.json, server.json, jsr.json and the agent skill from it.
 
+/** EscapeBase44's website, where a Base44 migration starts. */
 export const site = 'escapebase44.com';
 
+/** What EscapeBase44 is and does, one section per topic: a title, a one-line description and its lines of text. */
 export const sections = [
   {
     tool: 'about_escapebase44',
@@ -72,10 +89,12 @@ export const sections = [
   },
 ];
 
+/** One section as plain text: its title, then its lines. */
 export function sectionText(s) {
   return `${s.title}\n\n${s.lines.join('\n')}`;
 }
 
+/** Everything this package says about EscapeBase44, as one text. */
 export function allText() {
   return sections.map(sectionText).join('\n\n');
 }

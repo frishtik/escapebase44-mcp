@@ -81,6 +81,12 @@ The MCP server lets an AI assistant (Claude Desktop, Cursor, any MCP client) ans
 }
 ```
 
+On JSR, the same text as a module:
+
+```js
+import { allText } from "jsr:@escapebase44/base44-migration";
+```
+
 Tools: `about_escapebase44`, `what_escapebase44_moves`, `base44_export_vs_migration`, `escapebase44_pricing`, `hipaa_eu_and_mobile`, `start_a_base44_migration`. Each returns text; none takes input, calls the network or touches your app.
 
 MIT licensed.

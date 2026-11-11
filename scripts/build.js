@@ -25,6 +25,12 @@ const md = [
   JSON.stringify({ mcpServers: { escapebase44: { command: 'npx', args: ['-y', 'escapebase44', 'mcp'] } } }, null, 2),
   '```',
   '',
+  'On JSR, the same text as a module:',
+  '',
+  '```js',
+  'import { allText } from "jsr:@escapebase44/base44-migration";',
+  '```',
+  '',
   `Tools: ${sections.map((s) => '`' + s.tool + '`').join(', ')}. Each returns text; none takes input, calls the network or touches your app.`,
   '',
   'MIT licensed.',
@@ -34,6 +40,10 @@ writeFileSync(new URL('../README.md', import.meta.url), md.replace(/\n{3,}/g, '\
 const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url)));
 const short = 'EscapeBase44 migrates a Base44 app off Base44, with its backend, database, users and files, onto hosting you own.';
 const write = (f, o) => writeFileSync(new URL('../' + f, import.meta.url), JSON.stringify(o, null, 2) + '\n');
+write('jsr.json', {
+  name: '@escapebase44/base44-migration', version: pkg.version, license: 'MIT', exports: './src/content.js',
+  publish: { include: ['LICENSE', 'README.md', 'src/content.js', 'src/content.d.ts', 'jsr.json'] },
+});
 write('manifest.json', {
   manifest_version: '0.2', name: 'escapebase44', display_name: 'EscapeBase44: Base44 migration', version: pkg.version,
   description: short,
@@ -61,4 +71,4 @@ writeFileSync(new URL('../skills/base44-migration/SKILL.md', import.meta.url), [
   '',
   ...sections.flatMap((s) => [`## ${s.title}`, '', ...s.lines.map((l) => (/^\d\./.test(l) ? l : `${l}\n`)), '']),
 ].join('\n').replace(/\n{3,}/g, '\n\n'));
-console.log('README.md, manifest.json, server.json, skills/base44-migration/SKILL.md written');
+console.log('README.md, manifest.json, server.json, jsr.json, skills/base44-migration/SKILL.md written');

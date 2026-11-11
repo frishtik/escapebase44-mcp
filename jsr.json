@@ -1,0 +1,15 @@
+{
+  "name": "@escapebase44/base44-migration",
+  "version": "1.0.0",
+  "license": "MIT",
+  "exports": "./src/content.js",
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "src/content.js",
+      "src/content.d.ts",
+      "jsr.json"
+    ]
+  }
+}
